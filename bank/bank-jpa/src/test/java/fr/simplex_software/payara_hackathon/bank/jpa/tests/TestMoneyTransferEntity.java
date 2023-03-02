@@ -1,6 +1,6 @@
 package fr.simplex_software.payara_hackathon.bank.jpa.tests;
 
-import fr.simplex_software.payara.hackathon.money_transfer.jaxb.*;
+import fr.simplex_software.payara_hackathon.bank.jaxb.*;
 import fr.simplex_software.payara_hackathon.bank.jpa.*;
 import jakarta.persistence.*;
 import org.junit.jupiter.api.*;

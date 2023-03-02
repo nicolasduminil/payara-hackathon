@@ -8,20 +8,12 @@
     <artifactId>bank</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>bank-jpa</artifactId>
-  <name>Payara Hackathon :: Bank JPA module</name>
+  <artifactId>bank-mapping</artifactId>
+  <name>Payara Hackathon :: Bank Mapping module</name>
   <dependencies>
     <dependency>
-      <groupId>org.eclipse.persistence</groupId>
-      <artifactId>eclipselink</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.persistence</groupId>
-      <artifactId>org.eclipse.persistence.json</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse</groupId>
-      <artifactId>yasson</artifactId>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
     </dependency>
     <dependency>
       <groupId>fr.simplex-software.payara-hackathon</groupId>
@@ -29,9 +21,9 @@
       <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <scope>test</scope>
+      <groupId>fr.simplex-software.payara-hackathon</groupId>
+      <artifactId>bank-jpa</artifactId>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <build>
