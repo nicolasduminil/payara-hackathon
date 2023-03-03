@@ -12,6 +12,8 @@
     <module>bank-jaxb</module>
     <module>bank-jpa</module>
     <module>bank-mapping</module>
+    <module>bank-batch</module>
+    <module>bank-infra</module>
   </modules>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>

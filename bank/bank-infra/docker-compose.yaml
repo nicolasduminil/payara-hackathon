@@ -1,0 +1,81 @@
+version: "3.7"
+networks:
+  cluster:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.96.0/20
+services:
+  activemq:
+    image: rmohr/activemq:5.15.9-alpine
+    hostname: activemq
+    container_name: activemq
+    networks:
+      cluster:
+        ipv4_address: 192.168.96.10
+    user: root
+    ports:
+      - "61616:61616"
+      - "8161:8161"
+    volumes:
+      - ./activemq/conf/:/opt/activemq/conf
+      - ./activemq/data/:/opt/activemq/data
+  payara1:
+    container_name: payara1
+    image: payara/micro:6.2023.2-jdk17
+    hostname: payara1
+    networks:
+      cluster:
+        ipv4_address: 192.168.96.11
+    depends_on:
+      - activemq
+    ports:
+      - 18080:8080
+      - 16900:6900
+    expose:
+      - 8080
+      - 6900
+    volumes:
+      - ../bank-batch/target/bank-batch.war:/opt/payara/deployments/bank-batch.war
+  payara2:
+    container_name: payara2
+    hostname: payara2
+    networks:
+      cluster:
+        ipv4_address: 192.168.96.12
+    image: payara/micro:6.2023.2-jdk17
+    depends_on:
+      - activemq
+      - payara1
+    ports:
+      - 28080:8080
+      - 26900:6900
+    expose:
+      - 8080
+      - 6900
+    volumes:
+      - ../bank-jms/target/bank-jms.war:/opt/payara/deployments/bank-jms.war
+  #payara3:
+    #container_name: payara3
+    #hostname: payara3
+    #networks:
+      #cluster:
+        #ipv4_address: 192.168.96.13
+    #image: payara/server-full:6.2023.2-jdk17
+    #depends_on:
+      #- activemq
+      #- payara1
+      #- payara2
+    #ports:
+      #- 38080:8080
+      #- 38081:8081
+      #- 34848:4848
+      #- 39009:9009
+    #expose:
+      #- 8080
+      #- 8081
+      #- 4848
+      #- 9009
+    #volumes:
+      #- ../payara-hackathon-jaxrs/target/money-transfer-jaxrs.war:/opt/payara/deployments/money-transfer-jaxrs.war
