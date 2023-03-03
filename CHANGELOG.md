@@ -13,4 +13,10 @@ Have implemented the 1st version of components: bank-batch and bank-infra.
 
 ## The 3rd of March 2023 at 12:45 AM CET
 Have implemented bank-facade, bank-jms and bank-jaxrs.
-Testing now.
+Testing now ...
+
+## The 3rd of March 2023 at 9:30 PM CET
+Have added unit and integration tests for the components bank-mapping, bank-facade, bank-jaxb, bank-jaxrs.
+Have also tried during hours to add support for MP-JWT propagation to bank-jaxrs, but in vain.
+It simply doesn't work !
+Removed.
