@@ -56,26 +56,26 @@ services:
       - 6900
     volumes:
       - ../bank-jms/target/bank-jms.war:/opt/payara/deployments/bank-jms.war
-  #payara3:
-    #container_name: payara3
-    #hostname: payara3
-    #networks:
-      #cluster:
-        #ipv4_address: 192.168.96.13
-    #image: payara/server-full:6.2023.2-jdk17
-    #depends_on:
-      #- activemq
-      #- payara1
-      #- payara2
-    #ports:
-      #- 38080:8080
-      #- 38081:8081
-      #- 34848:4848
-      #- 39009:9009
-    #expose:
-      #- 8080
-      #- 8081
-      #- 4848
-      #- 9009
-    #volumes:
-      #- ../payara-hackathon-jaxrs/target/money-transfer-jaxrs.war:/opt/payara/deployments/money-transfer-jaxrs.war
+  payara3:
+    container_name: payara3
+    hostname: payara3
+    networks:
+      cluster:
+        ipv4_address: 192.168.96.13
+    image: payara/server-full:6.2023.2-jdk17
+    depends_on:
+      - activemq
+      - payara1
+      - payara2
+    ports:
+      - 38080:8080
+      - 38081:8081
+      - 34848:4848
+      - 39009:9009
+    expose:
+      - 8080
+      - 8081
+      - 4848
+      - 9009
+    volumes:
+      - ../bank-jaxrs/target/bank-jaxrs.war:/opt/payara/deployments/bank-jaxrs.war

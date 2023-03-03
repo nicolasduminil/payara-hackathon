@@ -12,7 +12,10 @@
     <module>bank-jaxb</module>
     <module>bank-jpa</module>
     <module>bank-mapping</module>
+    <module>bank-facade</module>
     <module>bank-batch</module>
+    <module>bank-jms</module>
+    <module>bank-jaxrs</module>
     <module>bank-infra</module>
   </modules>
   <properties>
