@@ -10,3 +10,7 @@ Have implemented 1st version of components: bank-jaxb, bank-jpa, bank-mapping.
 
 ## The 3rd of March 2023 at 11:15 AM CET
 Have implemented the 1st version of components: bank-batch and bank-infra.
+
+## The 3rd of March 2023 at 12:45 AM CET
+Have implemented bank-facade, bank-jms and bank-jaxrs.
+Testing now.
