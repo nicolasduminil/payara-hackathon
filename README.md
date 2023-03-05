@@ -351,6 +351,14 @@ high data volumes. Jakarta Batch is seldomly used in show-case applications, pro
 In most of the cases, the use of GUI based solutions are prefered, even if they aren't suitable for banks and for any organizations
 handling large amount of data. Hence the relatively inovant character of the solution.
 
+Another innovant point is the mapping of the domain model classes to JPA entities. Most of the domain model classes are
+directly mapped to JPA entities, with the exception of the `BankAddressEntity` one. The association between `BankEntity` 
+and `BankAddressEntity` is of a special kind, called *aggregation*. It's a stronger form of composition where the lifecycle
+of the `BankAddressEntity` is fully dependent of the lifecycle of the `BankEntity`. As a matter of fact, a bank address 
+cannot exist in the absence of the associated bank. In general, this kind of association is represented by a One-To-Many
+or a Many-To-One relationship and, then, this additional semantic is lost. Representing this association as an 
+aggregation is also innovant as it's only supported by recent JPA releases.
+
 ### Easy to use
 This criterium is more relevant for applications providing a GUI, which isn't the case of the present one. I have thought 
 for long wether to provide or not such a GUI and, finally, I decided not to, for several reasons:
@@ -369,6 +377,12 @@ analysts specialized in using Excel sheets, which are automatically converted in
 A certain impact is expected from a Jakarta EE application based on a full micro-services architecture. Instead of being a 
 monolith, like most of the classical Jakarta EE architectures are, the presented application is articulated around three 
 micro-services, each one deployed on a separate node in a cluster.
+
+The way that the integartion tests are conducted here is expected to have some impact as well. I'm using `testcontainers`
+instead of Arquillian, and this allow me to fully rely on the flexibility given by the Docker images/containers. But even 
+more impactfull is the way that the integration tests are executed outside the container, in a Java SE environment. Using
+Weld-SE, the CDI implementation for Java SE, I can perform complex integration tests, using CDI to inject instances and 
+trigger evennts, without the need of running containers with Arquillian or `testcontainers`.
 
 ### Use of Jakarta EE and Microprofile
 The application uses all the Eclipse Microprofile features, from Configuration to RESTfull Client,
