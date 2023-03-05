@@ -1,4 +1,9 @@
 # Payara Hackathon
+
+[![GitHub last commit](https://img.shields.io/github/last-commit/nicolasduminil/payara-hackathon?logo=Last%20commit&style=flat-square)](https://github.com/nicolasduminil/payara-hackathon/commits)
+[![GitHub](https://img.shields.io/github/license/nicolasduminil/payara-hackathon)](https://github.com/nicolasduminil/payara-hackathon/blob/master/LICENSE)
+[![GitHub](https://img.shields.io/github/downloads/nicolasduminil/payara-hackathon/total?logo=Downloads&style=flat-square)
+
 The application in this repository has been submitted to the Payara Hackathon that was conducted by the company from the
 2nd to the 6th of March 2023.
 
